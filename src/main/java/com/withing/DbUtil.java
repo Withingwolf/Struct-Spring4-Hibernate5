@@ -27,7 +27,7 @@ public class DbUtil {
 
     public static void main(String[] args) {
         Connection connection = getConnection();
-        String sql = "insert into user values"
+        String sql = "insert into user values";
 
 
     }

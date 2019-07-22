@@ -1,14 +1,16 @@
-import com.withing.config.*;
-import com.withing.domain.*;
-import org.hibernate.*;
+import com.withing.config.HibernateConfig;
+import com.withing.domain.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.junit.*;
-import org.springframework.context.*;
-import org.springframework.context.annotation.*;
-import org.springframework.orm.hibernate5.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 
 public class ApplicationContextTest {
+
 
     public static void main(String[] args) {
         Configuration configuration = new Configuration().configure();
@@ -47,7 +49,7 @@ public class ApplicationContextTest {
         }
     }
 
-    @Test
+
     public void applicationtest() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(HibernateConfig.class);
         LocalSessionFactoryBean localSessionFactoryBean = ctx.getBean(LocalSessionFactoryBean.class);

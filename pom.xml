@@ -7,6 +7,7 @@
     <groupId>withing.project</groupId>
     <artifactId>spring.basic</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
     <properties>
         <spring.framework.version>4.3.8.RELEASE</spring.framework.version>
     </properties>
@@ -24,6 +25,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${spring.framework.version}</version>
         </dependency>
         <!--hibernate依赖-->
@@ -64,19 +70,26 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8080</port>
+                    <server>springbasic</server>
+                    <uriEncoding>UTF-8</uriEncoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>nexus-aliyun</id>-->
-    <!--<name>nexus-aliyun</name>-->
-    <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
-    <!--<releases>-->
-    <!--<enabled>true</enabled>-->
-    <!--</releases>-->
-    <!--<snapshots>-->
-    <!--<enabled>false</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--</repositories>-->
+
 </project>
